@@ -13,9 +13,10 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-
+using namespace std;
 template <class T>
 class List{
+
 public:
 	List(); // constructor
 	~List(); // destructor
@@ -35,25 +36,48 @@ public:
 private:
 	Node<T>* proot;
 	int Size;
+
 };
 
 
 template <class T>
 List<T>::List() {
-	// TODO Auto-generated constructor stub
+	proot = NULL;
 	
 }
 
 template <class T>
 List<T>::~List() {
-	// TODO Auto-generated destructor stub
-	
 }
 
 
 template <class T>
 void List<T>::insert(T _data){
-	
+	try {
+
+		if(Size == 0){
+			proot = new Node<T>(_data);
+			Size++;
+			return;
+
+		}
+		if(proot == NULL) return;
+
+		//caso general
+		Node<T>* aux = proot;
+		int i = 0;
+		while(i < Size -1 && aux->getNext() != NULL){
+			i++;
+			aux->setNext(aux->getNext());
+		}
+		if(i == Size -1)
+			aux->setNext(new Node<T>(_data));
+
+	}
+	catch(std::bad_alloc&) {
+		cout<< "no inserte"<< endl;
+	}
+
 }
 
 template <class T>
@@ -80,7 +104,13 @@ unsigned int List<T>::size(){
 
 template <class T>
 void List<T>::show(){
-	
+	Node<T>* aux = proot;
+	while(aux->getNext() != NULL){
+		printf("%i\n",aux->getData());
+		aux->setNext(aux->getNext());
+		cout<< "dentro"<< endl;
+	}
+	cout<< "aqui"<< endl;
 }
 
 template <class T>
