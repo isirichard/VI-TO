@@ -1,10 +1,3 @@
-/*
- * Node.h
- *	Created on:  13/10/2014
- *  Modified on: 28/08/2018
- *  Author: Christian E. Portugal-Zambrano
- */
-
 #ifndef NODE_H_
 #define NODE_H_
 #include <iostream>
@@ -14,15 +7,15 @@ class Node{
 private:
 	T data;
 	Node<T>* next;
-	
+
 public:
 	Node(T _data):data(_data),next(NULL){}
 	~Node(){}
-	
+
 	T getData(){
 		return data;
 	}
-	
+
 	Node<T>* getNext(){
 		return next;
 	}
@@ -33,3 +26,7 @@ public:
 };
 
 #endif /* NODE_H_ */
+
+
+
+
