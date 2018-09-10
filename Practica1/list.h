@@ -36,11 +36,12 @@ template<class T>
 List<T>::List() {
 	proot = NULL;
 	Size = 0;
-
+	cout<<"llamando al constructor";
 }
 
 template<class T>
 List<T>::~List() {
+	cout<<"llamando al destructor";
 }
 
 template<class T>
@@ -164,23 +165,23 @@ void List<T>::remove(int _pos) {
 
 template<class T>
 T List<T>::operator [](int _pos) {
-	T dato = 0;
-	return dato;
+	//T dato = 0;
+	return at(_pos);
 }
 
 template<class T>
 void List<T>::operator <<(T _dato) {
-
+	insert(_dato);
 }
 
 template<class T>
 bool List<T>::save(std::string filepath) {
 	ofstream archivo;
 	//archivo.open("prueba.txt",ios::out); //abriendo
-	archivo.open(filepath, ios::out);
+	archivo.open(filepath.c_str());
 	if (archivo.fail()) {
 		cout << "No se pudo abrir el archivo";
-		exit(1);
+		//exit(1);
 	}
 	Node<T>* aux = proot;
 	while (aux != NULL) {
@@ -195,16 +196,19 @@ bool List<T>::save(std::string filepath) {
 template<class T>
 bool List<T>::load(std::string filepath) {
 	ifstream archivo;
-	string texto;
-	archivo.open(filepath,ios::in);
+	T data;
+	//archivo.open(filepath,ios::in);
+	archivo.open(filepath.c_str());
 	if(archivo.fail()){
 		cout<<"No se pudo abrir el archivo";
-		exit(1);
+		//exit(1);
 	}
 	//List<string> listAux;
 	while(!archivo.eof()){//mientras no sea el final del archivo
-		getline(archivo,texto);
-		cout<<texto<<endl;
+		archivo >> data;
+		//getline(archivo,texto);
+		insert(data);
+		//cout<<texto<<endl;
 		//listAux.insert(texto);
 	}
 	archivo.close();

@@ -4,7 +4,7 @@
 using namespace std;
 int main(){
 	List<int> myfirstList;
-	//List<int>* myfirstList = new List<int>();
+	List<int>* myfirstList2 = new List<int>();
 	myfirstList.insert(1);
 	myfirstList.insert(2);
 	myfirstList.insert(3);
@@ -13,9 +13,13 @@ int main(){
 	//myfirstList.erase(2);
 	//myfirstList.remove(4);
 	myfirstList.reverse();
-	myfirstList.load("prueba.txt");
-	//myfirstList.save("prueba.txt");
+	myfirstList<<(5);
+	//cout << myfirstList[1];
+	//myfirstList.load("prueba.txt");
+	//myfirstList.clear();
+	//myfirstList.load("prueba.txt");
 	//cout<< "hola"<< endl;
+
 	myfirstList.show();
 
 	return 0;
