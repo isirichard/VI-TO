@@ -14,7 +14,7 @@ class SimpleList : public IList<T> {
 public:
 	SimpleList(); // constructor
 	~SimpleList(); // destructor
-	void insert(T _data); //insert an element
+	void  insert(T _data); //insert an element
 
 private:
 	CNode<T>* proot;
@@ -26,16 +26,16 @@ template<class T>
 SimpleList<T>::SimpleList() {
 	proot = NULL;
 	Size = 0;
-	cout<<"llamando al constructor";
+	cout<<"llamando al constructor"<<endl;
 }
 
 template<class T>
 SimpleList<T>::~SimpleList() {
-	cout<<"llamando al destructor";
+	cout<<"llamando al destructor"<<endl;
 }
 
 template<class T>
-void SimpleList<T>::insert(T _data) {
+void SimpleList<T>::insert(T _data)  {
 	try {
 
 		if (Size == 0) {
