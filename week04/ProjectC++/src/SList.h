@@ -1,10 +1,3 @@
-/*
- * List.h
- *
- *  Created on: oct. 11, 2014
- *      Author: christian
- */
-
 #ifndef SLIST_H_
 #define SLIST_H_
 
